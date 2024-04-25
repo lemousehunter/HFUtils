@@ -4,10 +4,10 @@ from .HFUtilBase import HFUtilBase
 
 
 class HFUtilUpload(HFUtilBase):
-    def upload(self, repo_id: str, local_dir: str, replace_if_exist: bool):
+    def upload_folder(self, repo_id: str, local_dir: str, replace_if_exist: bool):
         print(self.hf_api)
         print(f"Uploading model {repo_id} to HF...")
-        if not self.check_model_exist(repo_id=repo_id) or (self.check_model_exist(repo_id=repo_id) and replace_if_exist):
+        if (self.check_model_exist(repo_id=repo_id) and replace_if_exist) or not self.check_model_exist(repo_id=repo_id):
             # Create repository
             self.hf_api.create_repo(
                 repo_id=repo_id,
