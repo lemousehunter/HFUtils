@@ -41,7 +41,7 @@ class HFUtilDownload(HFUtilBase):
             print("downloading tokenizer model")
             snapshot_download(repo_id=repo_id, allow_patterns="*.model", local_dir=local_dir)
 
-    def download_config_repo(self, repo_id: str, local_dir: str):
+    def download_config_from_repo(self, repo_id: str, local_dir: str):
         file_list = os.listdir(local_dir)
         if "config.json" not in file_list:
             print("downloading config.json")
