@@ -10,7 +10,6 @@ class HFUtilDownload(HFUtilBase):
 
     def download_folder(self, repo_id: str, folder_name: str, local_dir: str):
         files_list = [file for file in list(self.get_file_list(repo_id)) if f"{folder_name}/" in file.path]
-        print(files_list)
         for file in tqdm(files_list):
             self.hf_api.hf_hub_download(repo_id=repo_id, filename=file.path, token=self._read_token, local_dir=local_dir)
 
