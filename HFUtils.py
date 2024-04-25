@@ -1,5 +1,5 @@
-from src.HFUtilDownload import HFUtilDownload
-from HFUtilUpload import HFUtilUpload
+from .HFUtilDownload import HFUtilDownload
+from .HFUtilUpload import HFUtilUpload
 
 
 class HFUtils(HFUtilDownload, HFUtilUpload):

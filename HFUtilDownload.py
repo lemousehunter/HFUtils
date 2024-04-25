@@ -3,7 +3,7 @@ import os
 from huggingface_hub import snapshot_download
 from tqdm import tqdm
 
-from src.HFUtilBase import HFUtilBase
+from .HFUtilBase import HFUtilBase
 
 
 class HFUtilDownload(HFUtilBase):
