@@ -1,6 +1,6 @@
 import os
 
-from HFUtilBase import HFUtilBase
+from src.HFUtilBase import HFUtilBase
 
 
 class HFUtilUpload(HFUtilBase):
