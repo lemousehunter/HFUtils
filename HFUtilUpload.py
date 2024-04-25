@@ -4,7 +4,7 @@ from .HFUtilBase import HFUtilBase
 
 
 class HFUtilUpload(HFUtilBase):
-    def upload_folder(self, repo_id: str, local_dir: str, replace_if_exist: bool):
+    def upload_model(self, repo_id: str, local_dir: str, replace_if_exist: bool):
         print(self.hf_api)
         print(f"Uploading model {repo_id} to HF...")
         if (self.check_model_exist(repo_id=repo_id) and replace_if_exist) or not self.check_model_exist(repo_id=repo_id):
@@ -17,6 +17,7 @@ class HFUtilUpload(HFUtilBase):
                 exist_ok=True
             )
 
+            print(f"enumerating {local_dir}")
             # Upload all files from local_dir
             for root, dirs, files in os.walk(local_dir, topdown=False):
                 for name in files:
