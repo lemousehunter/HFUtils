@@ -7,6 +7,8 @@ class HFUtilUpload(HFUtilBase):
     def upload_model(self, repo_id: str, local_dir: str, replace_if_exist: bool):
         print(self.hf_api)
         print(f"Uploading model {repo_id} to HF...")
+        print('replace_if_exist:', replace_if_exist)
+        print("check_model_exist:", self.check_model_exist(repo_id=repo_id))
         if (self.check_model_exist(repo_id=repo_id) and replace_if_exist) or not self.check_model_exist(repo_id=repo_id):
             # Create repository
             self.hf_api.create_repo(
