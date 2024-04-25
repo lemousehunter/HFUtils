@@ -10,6 +10,7 @@ class HFUtilUpload(HFUtilBase):
         print('replace_if_exist:', replace_if_exist)
         print("check_model_exist:", self.check_model_exist(repo_id=repo_id))
         if (self.check_model_exist(repo_id=repo_id) and replace_if_exist) or not self.check_model_exist(repo_id=repo_id):
+            print(f"Creating repository {repo_id}")
             # Create repository
             self.hf_api.create_repo(
                 repo_id=repo_id,
@@ -19,7 +20,7 @@ class HFUtilUpload(HFUtilBase):
                 exist_ok=True
             )
 
-            print(f"enumerating {local_dir}")
+            print(f"uploading dir {local_dir}")
             # Upload all files from local_dir
             for root, dirs, files in os.walk(local_dir, topdown=False):
                 for name in files:
